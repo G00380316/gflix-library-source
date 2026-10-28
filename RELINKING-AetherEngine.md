@@ -8,7 +8,10 @@ folder, and Gflix loads it from there when it starts. You may replace it with a
 build of your own, made from a modified AetherEngine, and run Gflix with it.
 
 The licence text, AetherEngine's version and a link to its source are in the
-app under **Settings › About › Open Source**.
+app under **Settings › About › Open Source**. That link is the exact source Gflix
+ships, kept for at least three years after the last Gflix build that shipped
+it: https://github.com/G00380316/gflix-library-source/releases/tag/aetherengine-7.51.0-ffmpegbuild-3.10.2,
+with AetherEngine 7.51.0, this package and the FFmpeg build beside it.
 
 ## What the framework is
 
