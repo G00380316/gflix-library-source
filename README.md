@@ -11,9 +11,37 @@ shipped it.
 The source files themselves are attached to each release, with their SHA-256
 checksums in `SHA256SUMS`.
 
+## Release `aetherengine-7.66.0-ffmpegbuild-3.15.0`
+
+Gflix builds from 13 November 2026. AetherEngine ships as
+`AetherEngineDynamic.framework`, made by the `AetherEngineDynamic-gflix`
+package. Every archive is the upstream source at the tag named, unchanged,
+except where it says otherwise.
+
+| Archive | What it is | Licence | Upstream |
+| --- | --- | --- | --- |
+| `AetherEngine-7.66.0.tar.xz` | AetherEngine and AetherEngineSMB, tag `7.66.0` (commit `8e74bbb5cfde75287305c535c243c1ef9d96549c`), with the line-art scaler's kernels from Anime4K compiled in and a loudness filter derived as libebur128 derives it; its five optional traits, among them TrueHD, which would bring in LibTrueHD, are all off in Gflix | LGPL-3.0 with an App Store exception; Anime4K's kernels and libebur128's filter MIT | https://github.com/superuser404notfound/AetherEngine |
+| `AetherEngineDynamic-gflix.tar.xz` | Gflix's package that builds AetherEngine and AetherEngineSMB into `AetherEngineDynamic.framework` and re-exports both (unchanged) | as AetherEngine | (Gflix) |
+| `FFmpegBuild-3.15.0-source.tar.xz` | FFmpegBuild tag `3.15.0` (commit `d445e6daa180`) without its prebuilt frameworks: the `build.sh` (SHA-256 `aa1a43fd…b893`, as the frameworks' `BUILD-INFO.txt` records) and `patches/` that compiled every library | LGPL-2.1 | https://github.com/superuser404notfound/FFmpegBuild |
+| `ffmpeg-n8.1.3.tar.xz` | FFmpeg, tag `n8.1.3` (commit `1041abdc962f4cc4f394aa8de9dc5236c0c3b9e7`) | LGPL-2.1-or-later (configured without `--enable-gpl` or `--enable-version3`) | https://github.com/FFmpeg/FFmpeg |
+| `dav1d-1.5.4.tar.xz` | dav1d, tag `1.5.4` (commit `54706fc6bc0cdecab7e9593974a4039cc038fca7`) | BSD-2-Clause | https://code.videolan.org/videolan/dav1d |
+| `zimg-release-3.0.6.tar.xz` | zimg, tag `release-3.0.6` (commit `f819b14e8f39d1282400b0d9543e8ef73c1b2bbd`), with its test submodule | WTFPL | https://github.com/sekrit-twc/zimg |
+| `zvbi-0.2.46.tar.xz` | libzvbi, tag `v0.2.46` (commit `34bb6f660c5c1bacd4a66cc7b22311e4ca3c1ab5`), with the fix for CVE-2026-110654 | LGPL-2.0-or-later, `ure.c` MIT | https://github.com/zapping-vbi/zvbi |
+
+The changes to FFmpeg and libzvbi, and how to build a replacement, are as for
+the release `aetherengine-7.44.0-ffmpegbuild-3.9.0` below, with 3.15.0's
+`build.sh` in place of 3.9.0's. After `patch_ffmpeg_dca_x_heights` it applies
+three more changes to FFmpeg, each from the patch of the same name in
+`patches/`: `patch_ffmpeg_av1_delayed_rap` (`av1-delayed-rap.patch`),
+`patch_ffmpeg_matroska_skip_attachments` (`matroska-skip-attachments.patch`)
+and `patch_ffmpeg_matroska_byte_seek_done` (`matroska-byte-seek-done.patch`),
+then `patch_zvbi`; it builds libzvbi 0.2.46 (tag `v0.2.46`). GNU FriBidi,
+which GPlayer ships, has a release of its own beside GPlayer's FFmpeg:
+https://github.com/G00380316/ffmpeg-patched, release `fribidi-1.0.16`.
+
 ## Release `aetherengine-7.51.0-ffmpegbuild-3.10.2`
 
-Gflix builds from 28 October 2026. AetherEngine ships as
+Gflix builds from 28 October to 13 November 2026. AetherEngine ships as
 `AetherEngineDynamic.framework`, made by the `AetherEngineDynamic-gflix`
 package. Every archive is the upstream source at the tag named, unchanged,
 except where it says otherwise.
